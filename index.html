@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAP Fauzi & Rekan | Kantor Akuntan Publik Resmi</title>
+
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            darkNavy: '#040d18',
+            navy: '#0B1F3A',
+            navyLight: '#142c4f',
+            gold: '#C9A227',
+            goldLight: '#E5C158',
+            goldSoft: '#D8BC63',
+            goldPale: '#F7EFCF',
+            offWhite: '#F8F9FA',
+            slateCustom: '#64748B'
+          },
+          fontFamily: {
+            heading: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          },
+          boxShadow: {
+            'gold-glow': '0 0 35px -5px rgba(201, 162, 39, 0.4)',
+            'gold-inner': 'inset 0 0 15px rgba(201, 162, 39, 0.25)',
+            'luxury': '0 20px 45px -15px rgba(4, 13, 24, 0.5)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #040d18;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C9A227;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #E5C158;
+    }
+
+    /* Cinematic Opening Intro Preloader (Anggun & Berkelas) */
+    #intro-preloader {
+      position: fixed;
+      inset: 0;
+      background: #040d18;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #intro-preloader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .preloader-ring {
+      width: 130px;
+      height: 130px;
+      border: 3px solid rgba(201, 162, 39, 0.2);
+      border-top: 3px solid #E5C158;
+      border-radius: 50%;
+      animation: spinPreloader 2.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    }
+    @keyframes spinPreloader {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Full-Width Panoramic Landscape Cityscape Canvas */
+    #creative-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: auto;
+      z-index: 1;
+    }
+
+    .hero-fog-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(4, 13, 24, 0.45) 0%, rgba(11, 31, 58, 0.3) 45%, rgba(4, 13, 24, 0.78) 88%, #040d18 100%),
+                  radial-gradient(circle at 50% 30%, rgba(201, 162, 39, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F5E6BE 25%, #C9A227 65%, #9B7914 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: rotate(30deg);
+      transition: all 0.75s ease;
+      opacity: 0;
+    }
+    .shimmer-btn:hover::after {
+      left: 100%;
+      opacity: 1;
+    }
+
+    .laser-line-v {
+      position: relative;
+      overflow: hidden;
+    }
+    .laser-line-v::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -100%;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(180deg, transparent, #E5C158, #FFFFFF, transparent);
+      animation: laserDrop 2.2s infinite linear;
+    }
+    @keyframes laserDrop {
+      0% { top: -100%; }
+      100% { top: 200%; }
+    }
+
+    .luxury-card {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .luxury-card:hover {
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body class="bg-darkNavy text-slate-200 font-sans antialiased selection:bg-gold selection:text-navy overflow-x-hidden">
+
+  <!-- =========================================================================
+       CINEMATIC OPENING INTRO PRELOADER (Anggun & Berkelas)
+       ========================================================================= -->
+  <div id="intro-preloader">
+    <div class="relative mb-6 flex items-center justify-center">
+      <div class="preloader-ring"></div>
+      <div class="absolute w-14 h-14 bg-white rounded-xl shadow-lg border-2 border-gold p-1 flex items-center justify-center">
+        <svg viewBox="0 0 200 200" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 52 48 A 68 68 0 1 0 148 152" stroke="url(#preloaderGrad)" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 36 70 C 36 70 44 72 50 72 L 50 148 C 44 148 36 150 36 150 L 36 156 L 68 156 L 68 150 C 60 150 54 148 54 148 L 54 116 L 74 116 C 81 116 83 123 88 128 L 94 128 L 94 98 L 88 98 C 83 103 80 109 74 109 L 54 109 L 54 80 L 78 80 C 86 80 88 88 91 93 L 97 93 L 97 64 L 36 64 Z" fill="#0B1F3A"/>
+          <polygon points="80,112 89,112 89,74 80,80" fill="#0B1F3A"/>
+          <polygon points="94,112 103,112 103,58 94,64" fill="#C9A227"/>
+          <polygon points="108,112 117,112 117,46 108,52" fill="#0B1F3A"/>
+          <path d="M 74 114 Q 104 88 140 50" stroke="#C9A227" stroke-width="5.5" stroke-linecap="round"/>
+          <polygon points="144,46 130,52 138,62" fill="#C9A227"/>
+          <path d="M 98.5 44 C 94 36 98.5 24 98.5 24 C 98.5 24 103 36 98.5 44 Z" fill="#C9A227"/>
+          <path d="M 88 40 C 82 35 80 26 80 26 C 80 26 90 31 90 40 Z" fill="#C9A227"/>
+          <path d="M 109 40 C 115 35 117 26 117 26 C 117 26 107 31 107 40 Z" fill="#C9A227"/>
+          <path d="M 74 116 L 92 134 C 96 138 102 138 106 134 L 116 124 C 120 120 120 114 116 110 L 103 97 C 99 93 93 93 89 97 Z" fill="#0B1F3A"/>
+          <path d="M 112 110 L 100 122 C 96 126 90 126 86 122 L 78 114 L 88 104 L 98 114 C 100 116 103 116 105 114 L 122 97 L 129 104 Z" fill="#C9A227"/>
+          <circle cx="82" cy="120" r="3.2" fill="#C9A227"/>
+          <circle cx="88" cy="126" r="3.2" fill="#C9A227"/>
+          <circle cx="94" cy="132" r="3.2" fill="#C9A227"/>
+          <circle cx="100" cy="138" r="3.2" fill="#C9A227"/>
+          <path d="M 118 78 C 118 78 136 78 146 84 C 155 90 155 102 148 111 C 142 117 134 120 125 120 L 134 135 C 141 146 150 152 160 154 L 160 156 L 132 156 C 126 150 120 138 116 130 L 116 156 L 118 156 L 118 78 Z" fill="#C9A227"/>
+          <path d="M 124 86 L 136 86 C 142 86 146 90 146 98 C 146 106 142 110 136 110 L 124 110 Z" fill="#FFFFFF"/>
+          <defs>
+            <linearGradient id="preloaderGrad" x1="45" y1="45" x2="155" y2="155" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#0B1F3A"/>
+              <stop offset="0.65" stop-color="#C9A227"/>
+              <stop offset="1" stop-color="#E5C158"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+    <h2 class="text-xl sm:text-2xl font-heading font-extrabold text-white tracking-widest uppercase mb-1">
+      KAP FAUZI &amp; REKAN
+    </h2>
+    <p class="text-xs uppercase tracking-[0.25em] text-gold font-semibold mb-6">
+      Kantor Akuntan Publik • Izin Kemenkeu &amp; IAPI
+    </p>
+    <div class="w-56 h-1.5 bg-slate-800 rounded-full overflow-hidden shadow-inner">
+      <div id="preloader-bar" class="h-full bg-gradient-to-r from-gold to-goldLight w-0 transition-all duration-300"></div>
+    </div>
+    <p id="preloader-status" class="text-xs text-slate-300 mt-4 font-medium tracking-wide">
+      Memverifikasi Akreditasi &amp; Standar SPAP...
+    </p>
+  </div>
+
+  <!-- Top Reading Progress Indicator Bar -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-gold via-goldLight to-goldPale z-50 transition-all duration-150 w-0"></div>
+
+  <header id="main-nav" class="fixed top-0 left-0 right-0 z-40 bg-darkNavy/90 backdrop-blur-md border-b border-gold/20 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo Plaque -->
+        <a href="#home" class="flex items-center space-x-3 group">
+          <div class="w-12 h-12 bg-white rounded-xl shadow-md border-2 border-gold/80 p-1 flex items-center justify-center transition-transform group-hover:scale-105 duration-300 flex-shrink-0">
+            <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 52 48 A 68 68 0 1 0 148 152" stroke="url(#navLogoGrad)" stroke-width="7" stroke-linecap="round"/>
+              <path d="M 36 70 C 36 70 44 72 50 72 L 50 148 C 44 148 36 150 36 150 L 36 156 L 68 156 L 68 150 C 60 150 54 148 54 148 L 54 116 L 74 116 C 81 116 83 123 88 128 L 94 128 L 94 98 L 88 98 C 83 103 80 109 74 109 L 54 109 L 54 80 L 78 80 C 86 80 88 88 91 93 L 97 93 L 97 64 L 36 64 Z" fill="#0B1F3A"/>
+              <polygon points="80,112 89,112 89,74 80,80" fill="#0B1F3A"/>
+              <polygon points="94,112 103,112 103,58 94,64" fill="#C9A227"/>
+              <polygon points="108,112 117,112 117,46 108,52" fill="#0B1F3A"/>
+              <path d="M 74 114 Q 104 88 140 50" stroke="#C9A227" stroke-width="5.5" stroke-linecap="round"/>
+              <polygon points="144,46 130,52 138,62" fill="#C9A227"/>
+              <path d="M 98.5 44 C 94 36 98.5 24 98.5 24 C 98.5 24 103 36 98.5 44 Z" fill="#C9A227"/>
+              <path d="M 88 40 C 82 35 80 26 80 26 C 80 26 90 31 90 40 Z" fill="#C9A227"/>
+              <path d="M 109 40 C 115 35 117 26 117 26 C 117 26 107 31 107 40 Z" fill="#C9A227"/>
+              <path d="M 74 116 L 92 134 C 96 138 102 138 106 134 L 116 124 C 120 120 120 114 116 110 L 103 97 C 99 93 93 93 89 97 Z" fill="#0B1F3A"/>
+              <path d="M 112 110 L 100 122 C 96 126 90 126 86 122 L 78 114 L 88 104 L 98 114 C 100 116 103 116 105 114 L 122 97 L 129 104 Z" fill="#C9A227"/>
+              <circle cx="82" cy="120" r="3.2" fill="#C9A227"/>
+              <circle cx="88" cy="126" r="3.2" fill="#C9A227"/>
+              <circle cx="94" cy="132" r="3.2" fill="#C9A227"/>
+              <circle cx="100" cy="138" r="3.2" fill="#C9A227"/>
+              <path d="M 118 78 C 118 78 136 78 146 84 C 155 90 155 102 148 111 C 142 117 134 120 125 120 L 134 135 C 141 146 150 152 160 154 L 160 156 L 132 156 C 126 150 120 138 116 130 L 116 156 L 118 156 L 118 78 Z" fill="#C9A227"/>
+              <path d="M 124 86 L 136 86 C 142 86 146 90 146 98 C 146 106 142 110 136 110 L 124 110 Z" fill="#FFFFFF"/>
+              <defs>
+                <linearGradient id="navLogoGrad" x1="45" y1="45" x2="155" y2="155" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#0B1F3A"/>
+                  <stop offset="0.65" stop-color="#C9A227"/>
+                  <stop offset="1" stop-color="#E5C158"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div>
+            <span class="block text-base sm:text-lg font-heading font-extrabold text-white tracking-wide">FAUZI &amp; REKAN</span>
+            <span class="block text-[10px] tracking-[0.2em] font-semibold text-gold uppercase">Kantor Akuntan Publik</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <a href="#home" class="text-slate-200 hover:text-gold transition-colors">Beranda</a>
+          <a href="#tentang" class="text-slate-200 hover:text-gold transition-colors">Tentang Kami</a>
+          <a href="#layanan" class="text-slate-200 hover:text-gold transition-colors">Layanan</a>
+          <a href="#tim" class="text-slate-200 hover:text-gold transition-colors">Struktur Tim</a>
+          <a href="#simulator" class="text-slate-200 hover:text-gold transition-colors">Kalkulator Audit</a>
+          <a href="#kontak" class="text-slate-200 hover:text-gold transition-colors">Kontak</a>
+        </nav>
+
+        <!-- Right Quick Action Button -->
+        <div class="hidden sm:flex items-center space-x-4">
+          <a href="https://wa.me/6289529631082?text=Halo%20KAP%20Fauzi%20%26%20Rekan,%20saya%20ingin%20berkonsultasi%20mengenai%20jasa%20audit/akuntansi." target="_blank" class="shimmer-btn inline-flex items-center px-5 py-2.5 rounded-full bg-gradient-to-r from-gold to-goldLight text-darkNavy font-bold text-xs uppercase tracking-wider shadow-gold-glow hover:shadow-lg transition-all duration-300">
+            <svg class="w-4 h-4 fill-darkNavy mr-2" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            Konsultasi
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex sm:hidden">
+          <button id="mobile-menu-btn" aria-label="Buka Menu" class="p-2.5 rounded-lg bg-navy text-gold border border-gold/30 hover:border-gold focus:outline-none">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden sm:hidden bg-darkNavy/98 border-b border-gold/30 px-5 pt-3 pb-6 space-y-3 backdrop-blur-xl">
+      <a href="#home" class="mobile-link block py-2 text-slate-200 font-medium hover:text-gold">Beranda</a>
+      <a href="#tentang" class="mobile-link block py-2 text-slate-200 font-medium hover:text-gold">Tentang Kami</a>
+      <a href="#layanan" class="mobile-link block py-2 text-slate-200 font-medium hover:text-gold">Layanan Jasa</a>
+      <a href="#tim" class="mobile-link block py-2 text-slate-200 font-medium hover:text-gold">Struktur Organisasi</a>
+      <a href="#simulator" class="mobile-link block py-2 text-slate-200 font-medium hover:text-gold">Kalkulator Audit</a>
+      <a href="#kontak" class="mobile-link block py-2 text-slate-200 font-medium hover:text-gold">Kontak &amp; Lokasi</a>
+      <div class="pt-3 border-t border-slate-700/60 flex space-x-3">
+        <a href="https://wa.me/6289529631082" target="_blank" class="w-full text-center py-2.5 rounded-full bg-gold text-darkNavy font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2">
+          <svg class="w-4 h-4 fill-darkNavy" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>WhatsApp Hotline</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section id="home" class="relative min-h-[92vh] flex items-center justify-center bg-darkNavy text-white overflow-hidden pt-20">
+    
+    <!-- Full-Width Panoramic Landscape Cityscape Animated Canvas -->
+    <canvas id="creative-canvas"></canvas>
+    
+    <!-- Atmospheric Contrast Overlay -->
+    <div class="hero-fog-overlay"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        
+        <!-- Left Column: Value Proposition -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <!-- Official Accreditation Pill -->
+          <div class="inline-flex items-center space-x-2 bg-navy/90 border border-gold/60 px-4 py-2 rounded-full shadow-gold-glow backdrop-blur-md">
+            <span class="w-2.5 h-2.5 rounded-full bg-gold animate-ping"></span>
+            <span class="text-xs uppercase font-semibold tracking-wider text-goldLight">Izin Kemenkeu RI &amp; Anggota Resmi IAPI</span>
+          </div>
+
+          <!-- Main Hero Headline -->
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-white leading-[1.2] tracking-tight">
+            Profesional dalam Audit, <br class="hidden sm:inline">
+            <span class="gold-gradient-text block mt-2">
+              Terpercaya dalam Setiap Laporan.
+            </span>
+          </h1>
+
+          <!-- Subheadline Verbatim -->
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            KAP Fauzi &amp; Rekan hadir memberikan layanan jasa akuntan publik dan audit dengan mengutamakan integritas, profesionalisme, independensi, dan kualitas guna memperkuat tata kelola bisnis di tingkat nasional.
+          </p>
+
+          <!-- Dual Call to Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#layanan" class="shimmer-btn w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-gold via-goldLight to-gold text-darkNavy font-extrabold text-sm uppercase tracking-wider shadow-gold-glow hover:shadow-2xl hover:scale-[1.02] transition-all text-center">
+              Lihat Layanan Jasa
+            </a>
+            <a href="https://wa.me/6289529631082?text=Halo%20KAP%20Fauzi%20%26%20Rekan,%20saya%20ingin%20berkonsultasi%20layanan%20audit." target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-navy/90 hover:bg-navy text-white border border-gold/50 hover:border-gold font-bold text-sm tracking-wide transition-all backdrop-blur-md flex items-center justify-center space-x-2.5">
+              <svg class="w-5 h-5 fill-[#25D366] flex-shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>Hubungi Kami</span>
+            </a>
+          </div>
+
+          <!-- Crisp SVG Badges Under Buttons -->
+          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-300">
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Standar SPAP &amp; SAK</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Risk-Based Audit</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+              <span>Depok, Jawa Barat</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Team Group Photo Showcase Card -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="w-full max-w-lg bg-navy/90 backdrop-blur-xl border-2 border-gold/70 rounded-3xl p-4 sm:p-5 shadow-2xl relative overflow-hidden group hover:border-gold transition-all duration-300">
+            <div class="absolute -top-16 -right-16 w-36 h-36 bg-gold/15 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div class="flex items-center justify-between mb-3 px-1">
+              <span class="inline-flex items-center space-x-1.5 text-[11px] font-bold uppercase tracking-wider text-gold bg-gold/10 px-3 py-1 rounded-full border border-gold/30">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Tim Profesional KAP</span>
+              </span>
+              <span class="text-[11px] text-slate-300 font-semibold">Dewan Partner &amp; Auditor</span>
+            </div>
+
+            <!-- Main Group Photo Frame with Local File Fallback -->
+            <div class="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-2xl overflow-hidden border-2 border-gold/60 shadow-lg bg-darkNavy flex items-center justify-center group/photo">
+              <img id="team-group-photo-img" 
+                   src="https://i.postimg.cc/DZkbQ6N4/Desain-tanpa-judulkh.png" 
+                   alt="Foto Bersama Anggota Tim KAP Fauzi & Rekan" 
+                   class="w-full h-full object-cover object-center transition-transform duration-700 group-hover/photo:scale-105"
+                   onerror="this.src='https://placehold.co/800x560/08182b/E5C158?text=KAP+Fauzi+%26+Rekan+-+Tim+Auditor'">
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-darkNavy/85 via-transparent to-transparent pointer-events-none"></div>
+              
+              <div class="absolute bottom-3 left-3 bg-darkNavy/90 backdrop-blur-md border border-gold/40 px-3 py-1.5 rounded-xl text-white shadow-md pointer-events-none">
+                <span class="block text-xs font-bold text-white tracking-wide">KAP Fauzi &amp; Rekan</span>
+                <span class="block text-[10px] text-goldLight font-medium">Sinergi Integritas &amp; Profesionalisme</span>
+              </div>
+            </div>
+
+            <div class="pt-3.5 text-center">
+              <h3 class="text-base sm:text-lg font-heading font-extrabold text-white tracking-wide">
+                Dewan Partner &amp; Tim Auditor
+              </h3>
+              <p class="text-xs text-slate-300 mt-1 max-w-sm mx-auto leading-relaxed">
+                Dipimpin oleh <strong>Fauzi Adani, S.E., Ak., CA., CPA</strong> bersama tim auditor berkompetensi tinggi berlisensi resmi IAPI &amp; Kemenkeu RI.
+              </p>
+
+              <div class="grid grid-cols-2 gap-2 mt-3 text-left">
+                <div class="bg-darkNavy/80 p-2 rounded-xl border border-slate-700/60 flex items-center space-x-2.5">
+                  <div class="w-7 h-7 rounded-lg bg-gold/15 text-gold flex items-center justify-center text-xs flex-shrink-0 font-bold">
+                    6
+                  </div>
+                  <div>
+                    <span class="block text-[9px] uppercase font-bold text-slate-400">Total Formasi</span>
+                    <span class="text-xs font-bold text-white">Auditor Berlisensi</span>
+                  </div>
+                </div>
+                <div class="bg-darkNavy/80 p-2 rounded-xl border border-slate-700/60 flex items-center space-x-2.5">
+                  <div class="w-7 h-7 rounded-lg bg-gold/15 text-gold flex items-center justify-center text-xs flex-shrink-0">
+                    <svg class="w-3.5 h-3.5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  </div>
+                  <div>
+                    <span class="block text-[9px] uppercase font-bold text-slate-400">Izin Operasional</span>
+                    <span class="text-xs font-bold text-goldLight">Kemenkeu &amp; IAPI</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistik (Stat Counters) -->
+  <section class="relative z-20 -mt-8 max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="bg-navy border border-gold/30 rounded-2xl shadow-2xl p-6 sm:p-8 backdrop-blur-xl">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-gold/20">
+        
+        <div class="pt-4 md:pt-0 md:px-4 flex items-center justify-center md:justify-start space-x-4">
+          <div class="w-14 h-14 rounded-2xl bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-2xl flex-shrink-0">
+            <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <div>
+            <div class="text-3xl font-heading font-extrabold text-white flex items-center justify-center md:justify-start">
+              <span class="count-up" data-target="6">6</span>
+              <span class="text-gold ml-1">Auditor</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-1">Tim profesional berlisensi dengan pembagian tugas yang jelas.</p>
+          </div>
+        </div>
+
+        <div class="pt-4 md:pt-0 md:px-6 flex items-center justify-center md:justify-start space-x-4">
+          <div class="w-14 h-14 rounded-2xl bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-2xl flex-shrink-0">
+            <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <div class="text-3xl font-heading font-extrabold text-white flex items-center justify-center md:justify-start">
+              <span class="count-up" data-target="100">100</span>
+              <span class="text-gold ml-1">%</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-1">Kepatuhan penuh pada standar SPAP, SAK, dan Kode Etik Profesi.</p>
+          </div>
+        </div>
+
+        <div class="pt-4 md:pt-0 md:px-6 flex items-center justify-center md:justify-start space-x-4">
+          <div class="w-14 h-14 rounded-2xl bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-2xl flex-shrink-0">
+            <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div>
+            <div class="text-3xl font-heading font-extrabold text-white flex items-center justify-center md:justify-start">
+              <span class="text-white">Mitra</span>
+              <span class="text-gold ml-1">Strategis</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-1">Pendampingan tata kelola keuangan startup dan UMKM nasional.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Tentang Kami -->
+  <section id="tentang" class="py-24 bg-offWhite text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs uppercase font-extrabold tracking-widest text-gold bg-gold/10 px-4 py-1.5 rounded-full border border-gold/20">
+          Latar Belakang &amp; Nilai Dasar
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-darkNavy mt-3">
+          Tentang KAP Fauzi &amp; Rekan
+        </h2>
+        <div class="w-20 h-1 bg-gold mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+        
+        <div class="lg:col-span-7 space-y-5 text-slate-700 leading-relaxed text-base">
+          <p class="font-medium text-navy text-lg leading-relaxed">
+            KAP Fauzi &amp; Rekan resmi didirikan pada tanggal <strong>15 Agustus 2026</strong> di bawah kepemimpinan <strong>Fauzi Adani, S.E., Ak., CA., CPA</strong> selaku Managing Partner, bersama lima rekan profesional lainnya: <strong>Sandrina Salwa</strong>, <strong>Tiara Ulung</strong>, <strong>Asya Safira</strong>, <strong>Bunaya Dewi</strong>, dan <strong>Hamba Ikhsan</strong>.
+          </p>
+          <p>
+            Sejarah berdirinya firma ini berawal dari inisiatif dan visi bersama keenam pendiri yang melihat tingginya urgensi literasi keuangan pada sektor bisnis rintisan (<em>startup</em>) dan UMKM. Banyak entitas bisnis kewirausahaan yang memiliki produk unggulan, namun terhambat pertumbuhannya akibat tata kelola keuangan yang tidak transparan dan minimnya sistem pengendalian internal.
+          </p>
+          <p>
+            Berangkat dari keresahan tersebut, KAP Fauzi &amp; Rekan dibentuk bukan hanya sekadar untuk memberikan opini kepatuhan, melainkan untuk hadir sebagai <strong>Mitra Strategis</strong> yang mendampingi para wirausahawan dalam membangun fondasi bisnis yang akuntabel, kredibel, dan siap bersaing di pasar modal maupun perbankan.
+          </p>
+          <div class="bg-white border-l-4 border-gold p-4 rounded-r-xl shadow-sm text-sm text-slate-600">
+            <p class="italic">
+              "Berlandaskan izin resmi dari Kementerian Keuangan Republik Indonesia dan keanggotaan penuh Institut Akuntan Publik Indonesia (IAPI), kami mengombinasikan keahlian SPAP dan SAK dengan pendekatan audit modern berbasis risiko (<em>risk-based audit</em>)."
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="bg-navy text-white rounded-3xl p-8 border-2 border-gold/40 shadow-2xl relative overflow-hidden">
+            <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-gold/10 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div class="flex items-center space-x-5 mb-6">
+              <div class="w-24 h-24 rounded-2xl overflow-hidden border-2 border-gold shadow-lg flex-shrink-0 bg-darkNavy">
+                <img src="https://i.postimg.cc/DZkbQ6N4/Desain-tanpa-judulkh.png" alt="Fauzi Adani, S.E., Ak., CA., CPA" class="w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/200x200/0b1f3a/c9a227?text=Fauzi+Adani'">
+              </div>
+              <div>
+                <span class="text-xs uppercase tracking-widest text-gold font-bold">Pimpinan Tertinggi KAP</span>
+                <h3 class="text-xl font-heading font-extrabold text-white">Fauzi Adani</h3>
+                <p class="text-xs text-slate-300 font-semibold mt-0.5">S.E., Ak., CA., CPA</p>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-300 leading-relaxed border-t border-slate-700/80 pt-4">
+              Memimpin perikatan audit umum, evaluasi pengendalian internal, serta perumusan strategi kepatuhan akuntansi klien dengan integritas tertinggi dan objektivitas independen.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-gold/60 transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-xl bg-navy text-gold flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+          </div>
+          <h3 class="text-xl font-heading font-bold text-darkNavy mb-3">INTEGRITAS</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Menjaga kejujuran tanpa kompromi dan objektivitas penuh dalam setiap prosedur pemeriksaan dan perikatan jasa.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-gold/60 transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-xl bg-navy text-gold flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          </div>
+          <h3 class="text-xl font-heading font-bold text-darkNavy mb-3">PROFESIONALISME</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Memberikan layanan berdasarkan kompetensi berlisensi, kode etik IAPI, serta standar teknis SPAP dan SAK mutakhir.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-gold/60 transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-xl bg-navy text-gold flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 class="text-xl font-heading font-bold text-darkNavy mb-3">KEPERCAYAAN</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Menjaga kerahasiaan informasi sensitif perusahaan dan senantiasa mengedepankan kepentingan transparansi klien.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Visi Misi -->
+  <section class="py-20 bg-darkNavy text-white border-t border-b border-gold/20 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-5 bg-gradient-to-br from-navy to-darkNavy border-2 border-gold/40 p-8 sm:p-10 rounded-3xl shadow-2xl relative">
+          <div class="inline-block bg-gold/20 text-goldLight px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-gold/30">
+            Visi Utama Firma
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white leading-snug">
+            “Menjadi Kantor Akuntan Publik yang terpercaya, berintegritas tinggi, dan unggul dalam memberikan jasa serta kepatuhan akuntansi guna mendukung transparansi dan akuntabilitas dunia usaha di tingkat nasional.”
+          </h3>
+          <div class="mt-6 flex items-center space-x-3 text-gold text-sm font-semibold">
+            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            <span>Arah Strategis KAP Fauzi &amp; Rekan</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-4">
+          <span class="text-xs uppercase font-extrabold tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full border border-gold/20">
+            Misi &amp; Komitmen Pelaksanaan
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-heading font-bold text-white mb-6">
+            Empat Pilar Misi Profesional
+          </h3>
+
+          <div class="flex items-start space-x-4 bg-navy/60 p-4 rounded-xl border border-slate-700/60 hover:border-gold/50 transition-colors">
+            <div class="w-8 h-8 rounded-lg bg-gold/20 text-gold flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
+              1
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Memberikan jasa audit dan asurans secara objektif, independen, serta patuh penuh pada Standar Profesional Akuntan Publik (SPAP) dan Kode Etik Profesi.
+            </p>
+          </div>
+
+          <div class="flex items-start space-x-4 bg-navy/60 p-4 rounded-xl border border-slate-700/60 hover:border-gold/50 transition-colors">
+            <div class="w-8 h-8 rounded-lg bg-gold/20 text-gold flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
+              2
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Menyediakan jasa non-asurans yang relevan, akurat, dan bernilai tambah untuk membantu penguatan tata kelola serta pelaporan keuangan klien.
+            </p>
+          </div>
+
+          <div class="flex items-start space-x-4 bg-navy/60 p-4 rounded-xl border border-slate-700/60 hover:border-gold/50 transition-colors">
+            <div class="w-8 h-8 rounded-lg bg-gold/20 text-gold flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
+              3
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Meningkatkan kapabilitas teknis dan keahlian auditor secara berkala melalui adaptasi regulasi terkini serta penerapan teknologi audit modern.
+            </p>
+          </div>
+
+          <div class="flex items-start space-x-4 bg-navy/60 p-4 rounded-xl border border-slate-700/60 hover:border-gold/50 transition-colors">
+            <div class="w-8 h-8 rounded-lg bg-gold/20 text-gold flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
+              4
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Membangun relasi profesional jangka panjang bersama klien dan pemangku kepentingan berlandaskan transparansi, komunikasi terbuka, dan etika bisnis.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Layanan Jasa -->
+  <section id="layanan" class="py-24 bg-navy text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs uppercase font-extrabold tracking-widest text-gold bg-gold/10 px-4 py-1.5 rounded-full border border-gold/20">
+          Katalog Jasa Resmi
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-3">
+          Layanan Profesional Kami
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base mt-3">
+          Solusi atestasi dan konsultansi akuntansi yang dirancang untuk memberikan keyakinan memadai dan nilai tambah bagi pemangku kepentingan.
+        </p>
+        <div class="w-20 h-1 bg-gold mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        
+        <div class="bg-darkNavy p-8 rounded-3xl border border-gold/40 shadow-xl relative overflow-hidden">
+          <div class="flex items-center space-x-4 mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-gold/10 border border-gold/40 text-gold flex items-center justify-center text-2xl">
+              <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-gold uppercase tracking-wider">Perikatan Atestasi</span>
+              <h3 class="text-2xl font-heading font-bold text-white">Jasa Asurans</h3>
+            </div>
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            Mencakup audit umum atas laporan keuangan historis, review laporan keuangan, serta audit kepatuhan. Melalui penerapan metodologi berbasis risiko yang cermat, perikatan audit kami dirancang untuk memberikan keyakinan memadai (<em>reasonable assurance</em>) dan opini independen yang memperkuat keandalan laporan keuangan di mata pemegang saham, perbankan, maupun regulator.
+          </p>
+          <ul class="space-y-3 text-sm text-slate-200">
+            <li class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Audit Umum Laporan Keuangan Tahunan (Opini Auditor Independen)</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Review Laporan Keuangan Interim &amp; Khusus (Limited Assurance)</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Audit Kepatuhan Regulasi &amp; Penelaahan Pengendalian Internal</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-darkNavy p-8 rounded-3xl border border-gold/40 shadow-xl relative overflow-hidden">
+          <div class="flex items-center space-x-4 mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-gold/10 border border-gold/40 text-gold flex items-center justify-center text-2xl">
+              <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-gold uppercase tracking-wider">Perikatan Non-Atestasi</span>
+              <h3 class="text-2xl font-heading font-bold text-white">Jasa Non-Asurans</h3>
+            </div>
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            Ruang lingkup ini mencakup jasa kompilasi laporan keuangan, pelaksanaan prosedur yang disepakati (<em>Agreed-Upon Procedures / AUP</em>), hingga pendampingan teknis akuntansi. Dengan pendekatan kerja yang objektif, berintegritas, dan terjaga kerahasiaannya, kami memastikan setiap perikatan memberikan wawasan yang bernilai tambah guna mendukung pertumbuhan serta transparansi bisnis klien secara berkelanjutan.
+          </p>
+          <ul class="space-y-3 text-sm text-slate-200">
+            <li class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Kompilasi Penyusunan Laporan Keuangan Sesuai SAK</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Prosedur yang Disepakati (Agreed-Upon Procedures / AUP)</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Konsultasi &amp; Pendampingan Sistem Akuntansi Keuangan</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-navyLight/70 p-6 rounded-2xl border border-slate-700/60 hover:border-gold/70 transition-all duration-300 luxury-card">
+          <div class="text-gold text-2xl mb-4">
+            <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h4 class="text-lg font-heading font-bold text-white mb-2">Audit Laporan Keuangan</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Membantu memberikan keyakinan atas kewajaran penyajian laporan keuangan sesuai Standar Akuntansi Keuangan.
+          </p>
+        </div>
+
+        <div class="bg-navyLight/70 p-6 rounded-2xl border border-slate-700/60 hover:border-gold/70 transition-all duration-300 luxury-card">
+          <div class="text-gold text-2xl mb-4">
+            <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <h4 class="text-lg font-heading font-bold text-white mb-2">Jasa Akuntansi</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Membantu kebutuhan penyusunan dan pengelolaan informasi akuntansi secara tertib, sistematis, dan akurat.
+          </p>
+        </div>
+
+        <div class="bg-navyLight/70 p-6 rounded-2xl border border-slate-700/60 hover:border-gold/70 transition-all duration-300 luxury-card">
+          <div class="text-gold text-2xl mb-4">
+            <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <h4 class="text-lg font-heading font-bold text-white mb-2">Review Laporan Keuangan</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Melakukan penelaahan terhadap informasi keuangan secara profesional untuk kebutuhan pihak internal dan perbankan.
+          </p>
+        </div>
+
+        <div class="bg-navyLight/70 p-6 rounded-2xl border border-slate-700/60 hover:border-gold/70 transition-all duration-300 luxury-card">
+          <div class="text-gold text-2xl mb-4">
+            <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
+          </div>
+          <h4 class="text-lg font-heading font-bold text-white mb-2">Konsultasi Keuangan</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Memberikan konsultasi profesional terkait kebutuhan perpajakan mendasar, kepatuhan finansial, dan restrukturisasi pembukuan.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Struktur Tim -->
+  <section id="tim" class="py-24 bg-darkNavy text-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs uppercase font-extrabold tracking-widest text-gold bg-gold/10 px-4 py-1.5 rounded-full border border-gold/20">
+          Struktur Kepengurusan Resmi
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-3">
+          Struktur Organisasi KAP Fauzi &amp; Rekan
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Hierarki kepemimpinan dan tim auditor berlisensi yang bertugas menjamin mutu dan objektivitas setiap perikatan audit.
+        </p>
+        <div class="w-20 h-1 bg-gold mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="max-w-5xl mx-auto space-y-10">
+        
+        <div class="flex flex-col items-center">
+          <div class="w-full max-w-md bg-gradient-to-b from-navy to-darkNavy border-2 border-gold rounded-3xl p-6 shadow-2xl relative text-center group hover:scale-[1.02] transition-transform duration-300">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold text-darkNavy text-[10px] font-extrabold uppercase tracking-wider px-4 py-1 rounded-full shadow">
+              Pimpinan Tertinggi KAP
+            </div>
+
+            <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-gold shadow-gold-glow mb-4 bg-navy">
+              <img src="https://i.postimg.cc/DZkbQ6N4/Desain-tanpa-judulkh.png" alt="Fauzi Adani, S.E., Ak., CA., CPA" class="w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/200x200/0b1f3a/c9a227?text=Fauzi+Adani'">
+            </div>
+
+            <h3 class="text-xl font-heading font-extrabold text-white">Fauzi Adani, S.E., Ak., CA., CPA</h3>
+            <p class="text-xs font-bold text-gold uppercase tracking-widest mt-1">Managing Partner</p>
+            <p class="text-[11px] text-slate-300 mt-2 max-w-xs mx-auto">
+              Penanggung jawab perikatan audit, penandatangan opini resmi, dan pengendali mutu standar profesional firma.
+            </p>
+          </div>
+
+          <div class="w-0.5 h-12 bg-gold/40 relative laser-line-v">
+            <div class="w-2 h-2 rounded-full bg-gold absolute -bottom-1 -left-[3px]"></div>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center">
+          <div class="w-full max-w-sm bg-navy/90 border border-gold/50 rounded-2xl p-5 shadow-xl text-center group hover:scale-[1.02] transition-transform duration-300">
+            <div class="w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-gold mb-3 bg-darkNavy flex items-center justify-center text-gold">
+              <img src="https://i.postimg.cc/TPqW9gvN/FOTO-SANDRINA-FORMAL.png" alt="Sandrina Salwa" class="w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/200x200/0b1f3a/c9a227?text=Sandrina'">
+            </div>
+            <h4 class="text-base font-heading font-bold text-white">Sandrina Salwa S., S.E., Ak., CA.</h4>
+            <p class="text-xs font-semibold text-goldLight uppercase tracking-wider mt-0.5">Audit Manager</p>
+            <p class="text-[11px] text-slate-300 mt-1.5">
+              Supervisi perencanaan audit, alokasi sumber daya, dan penelaahan kertas kerja audit (KKP).
+            </p>
+          </div>
+
+          <div class="w-0.5 h-12 bg-gold/40 relative laser-line-v">
+            <div class="w-2 h-2 rounded-full bg-gold absolute -bottom-1 -left-[3px]"></div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="text-center">
+            <span class="text-[11px] uppercase font-bold tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full border border-gold/20">
+              Tingkat Auditor Senior
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div class="bg-navy/80 border border-slate-700/80 hover:border-gold/50 rounded-2xl p-5 shadow-lg flex items-center space-x-4 transition-all">
+              <div class="w-20 h-20 rounded-2xl overflow-hidden border-2 border-gold/60 flex-shrink-0 bg-darkNavy">
+                <img src="https://i.postimg.cc/SxY6WnKv/Gemini-Generated-Image-udumkludumkludum.jpg" alt="Bunaya Dewi K., S.E., Ak." class="w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/200x200/0b1f3a/c9a227?text=Bunaya+Dewi'">
+              </div>
+              <div>
+                <h4 class="text-sm sm:text-base font-heading font-bold text-white">Bunaya Dewi K., S.E., Ak.</h4>
+                <p class="text-xs font-semibold text-gold uppercase tracking-wider mt-0.5">Auditor Senior</p>
+                <p class="text-[11px] text-slate-300 mt-1">
+                  Pelaksanaan uji substantif, penaksiran risiko material, dan kepatuhan akuntansi.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-navy/80 border border-slate-700/80 hover:border-gold/50 rounded-2xl p-5 shadow-lg flex items-center space-x-4 transition-all">
+              <div class="w-20 h-20 rounded-2xl overflow-hidden border-2 border-gold/60 flex-shrink-0 bg-darkNavy">
+                <img src="https://i.postimg.cc/DZkbQ6N4/Desain-tanpa-judulkh.png" alt="Asya Safira R., S.E., Ak." class="w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/200x200/0b1f3a/c9a227?text=Asya+Safira'">
+              </div>
+              <div>
+                <h4 class="text-sm sm:text-base font-heading font-bold text-white">Asya Safira R., S.E., Ak.</h4>
+                <p class="text-xs font-semibold text-gold uppercase tracking-wider mt-0.5">Auditor Senior</p>
+                <p class="text-[11px] text-slate-300 mt-1">
+                  Analisis kepatuhan pelaporan keuangan, review analitikal, dan prosedur atestasi.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="w-0.5 h-10 bg-gold/30 mx-auto relative laser-line-v"></div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="text-center">
+            <span class="text-[11px] uppercase font-bold tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full border border-gold/20">
+              Tingkat Auditor Junior
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div class="bg-navy/80 border border-slate-700/80 hover:border-gold/50 rounded-2xl p-5 shadow-lg flex items-center space-x-4 transition-all">
+              <div class="w-20 h-20 rounded-2xl overflow-hidden border-2 border-gold/60 flex-shrink-0 bg-darkNavy">
+                <img src="https://i.postimg.cc/DZkbQ6N4/Desain-tanpa-judulkh.png" alt="Tiara Ulung P., S.E." class="w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/200x200/0b1f3a/c9a227?text=Tiara+Ulung'">
+              </div>
+              <div>
+                <h4 class="text-sm sm:text-base font-heading font-bold text-white">Tiara Ulung P., S.E.</h4>
+                <p class="text-xs font-semibold text-gold uppercase tracking-wider mt-0.5">Auditor Junior</p>
+                <p class="text-[11px] text-slate-300 mt-1">
+                  Pengumpulan bukti transaksi, rekonsiliasi akun, dan pendokumentasian KKP lapangan.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-navy/80 border border-slate-700/80 hover:border-gold/50 rounded-2xl p-5 shadow-lg flex items-center space-x-4 transition-all">
+              <div class="w-20 h-20 rounded-2xl overflow-hidden border-2 border-gold/60 flex-shrink-0 bg-darkNavy">
+                <img src="https://i.postimg.cc/DZkbQ6N4/Desain-tanpa-judulkh.png" alt="Hamba Ikhsan A., S.E." class="w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/200x200/0b1f3a/c9a227?text=Hamba+Ikhsan'">
+              </div>
+              <div>
+                <h4 class="text-sm sm:text-base font-heading font-bold text-white">Hamba Ikhsan A., S.E.</h4>
+                <p class="text-xs font-semibold text-gold uppercase tracking-wider mt-0.5">Auditor Junior</p>
+                <p class="text-[11px] text-slate-300 mt-1">
+                  Vouching dokumen fisik, uji pisah batas (cutoff test), dan verifikasi saldo buku besar.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Kalkulator & Estimasi Kebutuhan Audit -->
+  <section id="simulator" class="py-20 bg-offWhite text-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="bg-white rounded-3xl p-8 sm:p-10 border-2 border-gold/40 shadow-xl">
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <span class="text-xs uppercase font-extrabold tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full">
+            Fitur Simulasi Cepat
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-darkNavy mt-2">
+            Kalkulator &amp; Estimasi Kebutuhan Audit
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1">
+            Pilih karakteristik entitas Anda untuk memperoleh rekomendasi perikatan yang tepat dari KAP Fauzi &amp; Rekan.
+          </p>
+        </div>
+
+        <form id="audit-calculator-form" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-navy uppercase tracking-wider mb-2">Bentuk Entitas</label>
+              <select id="sim-entity" class="w-full bg-offWhite border border-slate-300 rounded-xl px-4 py-3 text-sm focus:border-gold focus:outline-none">
+                <option value="PT">Perseroan Terbatas (PT)</option>
+                <option value="CV">CV / Firma</option>
+                <option value="Startup">Startup / Bisnis Digital</option>
+                <option value="Yayasan">Yayasan / Lembaga Nirlaba</option>
+                <option value="UMKM">Koperasi / UMKM</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-navy uppercase tracking-wider mb-2">Estimasi Omzet Tahunan</label>
+              <select id="sim-revenue" class="w-full bg-offWhite border border-slate-300 rounded-xl px-4 py-3 text-sm focus:border-gold focus:outline-none">
+                <option value="<500JT">&lt; Rp 500 Juta (Mikro / Rintisan)</option>
+                <option value="500JT-2.5M" selected>Rp 500 Juta – Rp 2,5 Miliar (Kecil)</option>
+                <option value="2.5M-10M">Rp 2,5 Miliar – Rp 10 Miliar (Menengah)</option>
+                <option value=">10M">&gt; Rp 10 Miliar (Berkembang)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-navy uppercase tracking-wider mb-2">Tujuan / Layanan Profesional</label>
+              <select id="sim-goal" class="w-full bg-offWhite border border-slate-300 rounded-xl px-4 py-3 text-sm focus:border-gold focus:outline-none">
+                <option value="audit-umum" selected>Audit Umum Laporan Keuangan (Opini Resmi)</option>
+                <option value="review">Review Laporan Keuangan (Limited Assurance)</option>
+                <option value="kompilasi">Kompilasi &amp; Pembukuan Sesuai SAK</option>
+                <option value="aup">Prosedur yang Disepakati (AUP)</option>
+                <option value="konsultasi">Konsultasi Keuangan &amp; Pengendalian Internal</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="sim-result-box" class="bg-navy text-white p-6 rounded-2xl border border-gold/40 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-gold uppercase tracking-wider">Rekomendasi Layanan</span>
+              <span id="sim-badge" class="text-[11px] bg-gold/20 text-goldLight px-3 py-0.5 rounded-full border border-gold/30">Jasa Asurans</span>
+            </div>
+            <h4 id="sim-title" class="text-lg font-heading font-bold text-white">Audit Umum Laporan Keuangan Tahunan</h4>
+            <p id="sim-desc" class="text-xs text-slate-300 leading-relaxed">
+              Pemeriksaan independen berstandar SPAP untuk memberikan keyakinan memadai (reasonable assurance) dan penerbitan Opini Auditor Independen guna keperluan pelaporan tahunan, perbankan, tender, atau pemegang saham.
+            </p>
+            <div class="pt-3 border-t border-slate-700/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div class="text-xs text-slate-300">
+                <span>Estimasi Waktu Pengerjaan: </span>
+                <strong id="sim-duration" class="text-gold">3 – 4 Minggu Kerja</strong>
+              </div>
+              <a id="sim-wa-link" href="https://wa.me/6289529631082" target="_blank" class="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-gold text-darkNavy font-bold text-xs uppercase tracking-wider hover:bg-goldLight transition-colors">
+                <svg class="w-4 h-4 fill-darkNavy mr-1.5 flex-shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Jadwalkan Konsultasi</span>
+              </a>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Kontak & Lokasi -->
+  <section id="kontak" class="py-24 bg-offWhite text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs uppercase font-extrabold tracking-widest text-gold bg-gold/10 px-4 py-1.5 rounded-full border border-gold/20">
+          Hubungi Tim Kami
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-darkNavy mt-3">
+          Konsultasi &amp; Lokasi Kantor
+        </h2>
+        <p class="text-slate-600 text-sm mt-2">
+          Kami siap menjadi mitra terpercaya dalam mendampingi tata kelola keuangan bisnis Anda.
+        </p>
+        <div class="w-20 h-1 bg-gold mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <div class="lg:col-span-5 space-y-6">
+          
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
+            <div class="w-12 h-12 rounded-xl bg-navy text-gold flex items-center justify-center text-xl flex-shrink-0">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-navy uppercase tracking-wider">Kantor Operasional</h4>
+              <p class="text-sm text-slate-600 mt-1">Depok, Jawa Barat, Indonesia</p>
+              <p class="text-xs text-slate-500 mt-0.5">Siap melayani perikatan di seluruh wilayah Indonesia.</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
+            <div class="w-12 h-12 rounded-xl bg-navy text-gold flex items-center justify-center text-xl flex-shrink-0">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-navy uppercase tracking-wider">Email Korespondensi</h4>
+              <a href="mailto:kapfauzidanrekan@gmail.com" class="text-sm text-gold font-bold hover:underline mt-1 block">
+                kapfauzidanrekan@gmail.com
+              </a>
+              <p class="text-xs text-slate-500 mt-0.5">Surat penawaran &amp; proposal audit resmi.</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
+            <div class="w-12 h-12 rounded-xl bg-navy text-gold flex items-center justify-center text-xl flex-shrink-0">
+              <svg class="w-6 h-6 fill-gold" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-navy uppercase tracking-wider">Hotline Konsultasi</h4>
+              <a href="https://wa.me/6289529631082" target="_blank" class="text-sm text-gold font-bold hover:underline mt-1 block">
+                +62 895-2963-1082
+              </a>
+              <p class="text-xs text-slate-500 mt-0.5">Respon cepat hari kerja (08.30 – 17.00 WIB).</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl">
+          <h3 class="text-xl font-heading font-bold text-navy mb-2">Kirim Pesan Konsultasi</h3>
+          <p class="text-xs text-slate-500 mb-6">Isi formulir di bawah ini dan tim auditor kami akan segera menanggapi Anda.</p>
+
+          <form id="contact-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-navy uppercase tracking-wider mb-1">Nama Lengkap *</label>
+                <input type="text" required placeholder="Contoh: Budi Santoso" class="w-full bg-offWhite border border-slate-300 rounded-xl px-4 py-3 text-sm focus:border-gold focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-navy uppercase tracking-wider mb-1">Nama Perusahaan / Entitas</label>
+                <input type="text" placeholder="PT / CV / Startup..." class="w-full bg-offWhite border border-slate-300 rounded-xl px-4 py-3 text-sm focus:border-gold focus:outline-none">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-navy uppercase tracking-wider mb-1">Email Aktif *</label>
+                <input type="email" required placeholder="nama@perusahaan.com" class="w-full bg-offWhite border border-slate-300 rounded-xl px-4 py-3 text-sm focus:border-gold focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-navy uppercase tracking-wider mb-1">Nomor WhatsApp *</label>
+                <input type="tel" required placeholder="08123456789" class="w-full bg-offWhite border border-slate-300 rounded-xl px-4 py-3 text-sm focus:border-gold focus:outline-none">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-navy uppercase tracking-wider mb-1">Layanan yang Dibutuhkan</label>
+              <select class="w-full bg-offWhite border border-slate-300 rounded-xl px-4 py-3 text-sm focus:border-gold focus:outline-none">
+                <option>Audit Umum Laporan Keuangan</option>
+                <option>Review Laporan Keuangan</option>
+                <option>Kompilasi Laporan Keuangan</option>
+                <option>Agreed-Upon Procedures (AUP)</option>
+                <option>Konsultasi Akuntansi &amp; Pajak</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-navy uppercase tracking-wider mb-1">Pesan / Kebutuhan Tambahan</label>
+              <textarea rows="3" placeholder="Jelaskan kebutuhan audit Anda secara singkat..." class="w-full bg-offWhite border border-slate-300 rounded-xl px-4 py-3 text-sm focus:border-gold focus:outline-none"></textarea>
+            </div>
+
+            <button type="submit" class="shimmer-btn w-full py-4 rounded-xl bg-navy hover:bg-navyLight text-gold font-bold text-xs uppercase tracking-wider border border-gold/40 hover:border-gold transition-all shadow-md flex items-center justify-center space-x-2">
+              <svg class="w-4 h-4 fill-gold" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+              <span>Kirim Pesan Konsultasi</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-darkNavy text-white border-t border-gold/30 pt-16 pb-24 sm:pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+        
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-14 h-14 bg-white rounded-xl shadow-md border-2 border-gold/80 p-1 flex items-center justify-center flex-shrink-0">
+              <svg viewBox="0 0 200 200" class="w-full h-full" fill="none">
+                <path d="M 52 48 A 68 68 0 1 0 148 152" stroke="url(#footerLogoGrad)" stroke-width="7" stroke-linecap="round"/>
+                <path d="M 36 70 C 36 70 44 72 50 72 L 50 148 C 44 148 36 150 36 150 L 36 156 L 68 156 L 68 150 C 60 150 54 148 54 148 L 54 116 L 74 116 C 81 116 83 123 88 128 L 94 128 L 94 98 L 88 98 C 83 103 80 109 74 109 L 54 109 L 54 80 L 78 80 C 86 80 88 88 91 93 L 97 93 L 97 64 L 36 64 Z" fill="#0B1F3A"/>
+                <polygon points="80,112 89,112 89,74 80,80" fill="#0B1F3A"/>
+                <polygon points="94,112 103,112 103,58 94,64" fill="#C9A227"/>
+                <polygon points="108,112 117,112 117,46 108,52" fill="#0B1F3A"/>
+                <path d="M 74 114 Q 104 88 140 50" stroke="#C9A227" stroke-width="5.5" stroke-linecap="round"/>
+                <polygon points="144,46 130,52 138,62" fill="#C9A227"/>
+                <path d="M 98.5 44 C 94 36 98.5 24 98.5 24 C 98.5 24 103 36 98.5 44 Z" fill="#C9A227"/>
+                <path d="M 88 40 C 82 35 80 26 80 26 C 80 26 90 31 90 40 Z" fill="#C9A227"/>
+                <path d="M 109 40 C 115 35 117 26 117 26 C 117 26 107 31 107 40 Z" fill="#C9A227"/>
+                <path d="M 74 116 L 92 134 C 96 138 102 138 106 134 L 116 124 C 120 120 120 114 116 110 L 103 97 C 99 93 93 93 89 97 Z" fill="#0B1F3A"/>
+                <path d="M 112 110 L 100 122 C 96 126 90 126 86 122 L 78 114 L 88 104 L 98 114 C 100 116 103 116 105 114 L 122 97 L 129 104 Z" fill="#C9A227"/>
+                <circle cx="82" cy="120" r="3.2" fill="#C9A227"/>
+                <circle cx="88" cy="126" r="3.2" fill="#C9A227"/>
+                <circle cx="94" cy="132" r="3.2" fill="#C9A227"/>
+                <circle cx="100" cy="138" r="3.2" fill="#C9A227"/>
+                <path d="M 118 78 C 118 78 136 78 146 84 C 155 90 155 102 148 111 C 142 117 134 120 125 120 L 134 135 C 141 146 150 152 160 154 L 160 156 L 132 156 C 126 150 120 138 116 130 L 116 156 L 118 156 L 118 78 Z" fill="#C9A227"/>
+                <path d="M 124 86 L 136 86 C 142 86 146 90 146 98 C 146 106 142 110 136 110 L 124 110 Z" fill="#FFFFFF"/>
+                <defs>
+                  <linearGradient id="footerLogoGrad" x1="45" y1="45" x2="155" y2="155" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#0B1F3A"/>
+                    <stop offset="0.65" stop-color="#C9A227"/>
+                    <stop offset="1" stop-color="#E5C158"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div>
+              <span class="block text-lg font-heading font-extrabold text-white">KAP FAUZI &amp; REKAN</span>
+              <span class="block text-[10px] text-gold uppercase tracking-widest font-semibold">Kantor Akuntan Publik</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+            Firma akuntan publik resmi berizin Kementerian Keuangan RI dan anggota Institut Akuntan Publik Indonesia (IAPI). Mengedepankan integritas, profesionalisme, dan transparansi laporan keuangan.
+          </p>
+        </div>
+
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-xs font-bold text-gold uppercase tracking-wider">Navigasi Utama</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#home" class="hover:text-gold transition-colors">Beranda</a></li>
+            <li><a href="#tentang" class="hover:text-gold transition-colors">Tentang Kami &amp; Sejarah</a></li>
+            <li><a href="#layanan" class="hover:text-gold transition-colors">Jasa Asurans &amp; Non-Asurans</a></li>
+            <li><a href="#tim" class="hover:text-gold transition-colors">Struktur Organisasi</a></li>
+            <li><a href="#kontak" class="hover:text-gold transition-colors">Kontak &amp; Lokasi</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-xs font-bold text-gold uppercase tracking-wider">Kontak Resmi</h4>
+          <p class="text-xs text-slate-400 flex items-center space-x-2">
+            <svg class="w-4 h-4 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>Depok, Jawa Barat, Indonesia</span>
+          </p>
+          <p class="text-xs text-slate-400 flex items-center space-x-2">
+            <svg class="w-4 h-4 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span>kapfauzidanrekan@gmail.com</span>
+          </p>
+          <p class="text-xs text-slate-400 flex items-center space-x-2">
+            <svg class="w-4 h-4 fill-gold flex-shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>+62 895-2963-1082</span>
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>&copy; 2026 KAP Fauzi &amp; Rekan. All Rights Reserved.</p>
+        <p class="text-slate-500">Izin Kemenkeu RI • Anggota IAPI • Standar SPAP &amp; SAK</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Sticky Bar -->
+  <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-darkNavy/95 border-t border-gold/40 p-3 backdrop-blur-lg flex items-center justify-between space-x-3">
+    <a href="https://wa.me/6289529631082?text=Halo%20KAP%20Fauzi%20%26%20Rekan,%20saya%20ingin%20berkonsultasi%20mengenai%20jasa%20audit/akuntansi." target="_blank" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-gold to-goldLight text-darkNavy font-extrabold text-xs uppercase tracking-wider text-center shadow-lg flex items-center justify-center space-x-2">
+      <svg class="w-4 h-4 fill-darkNavy flex-shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      <span>WhatsApp Hotline</span>
+    </a>
+    <a href="#kontak" class="py-3 px-4 rounded-xl bg-navy text-gold border border-gold/50 font-bold text-xs uppercase tracking-wider flex items-center justify-center">
+      <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+    </a>
+  </div>
+
+  <!-- Floating WhatsApp Widget -->
+  <div class="fixed bottom-20 sm:bottom-6 right-5 sm:right-6 z-50 flex items-center group">
+    <div class="hidden sm:flex items-center space-x-2 bg-navy/95 border border-gold/50 text-white text-xs py-2 px-3.5 rounded-2xl shadow-luxury mr-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0 pointer-events-none backdrop-blur-md">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span class="font-medium text-slate-200">Konsultasi via WhatsApp</span>
+    </div>
+
+    <a href="https://wa.me/6289529631082?text=Halo%20KAP%20Fauzi%20%26%20Rekan,%20saya%20ingin%20berkonsultasi%20mengenai%20jasa%20audit/akuntansi." 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Hubungi WhatsApp KAP Fauzi & Rekan" 
+       class="relative w-14 h-14 rounded-full bg-gradient-to-tr from-[#25D366] to-[#128C7E] text-white flex items-center justify-center shadow-luxury border-2 border-white/30 hover:scale-110 active:scale-95 transition-all duration-300 group">
+      
+      <span class="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping pointer-events-none"></span>
+
+      <svg class="w-7 h-7 fill-white drop-shadow-md" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+    </a>
+  </div>
+
+  <div id="toast-box" class="fixed top-24 right-5 z-50 transform translate-x-96 transition-transform duration-300 bg-navy border-2 border-gold text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center space-x-3">
+    <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+    <span id="toast-msg" class="text-xs font-semibold">Pesan terkirim dengan baik!</span>
+  </div>
+
+  <script>
+    /* =========================================================================
+       CINEMATIC PRELOADER ANIMATION LOGIC (Berjalan Otomatis & Anggun)
+       ========================================================================= */
+    document.addEventListener('DOMContentLoaded', function() {
+      var preloader = document.getElementById('intro-preloader');
+      var bar = document.getElementById('preloader-bar');
+      var status = document.getElementById('preloader-status');
+
+      var progress = 0;
+      var interval = setInterval(function() {
+        progress += 2;
+        if (progress >= 100) {
+          progress = 100;
+          if (bar) bar.style.width = '100%';
+          if (status) status.innerText = 'Selamat Datang di KAP Fauzi & Rekan';
+          clearInterval(interval);
+          setTimeout(function() {
+            if (preloader) preloader.classList.add('fade-out');
+          }, 1000);
+        } else {
+          if (bar) bar.style.width = progress + '%';
+          if (progress > 70) {
+            if (status) status.innerText = 'Menyiapkan Standar SPAP & SAK...';
+          } else if (progress > 40) {
+            if (status) status.innerText = 'Memverifikasi Akreditasi Kemenkeu & IAPI...';
+          } else if (progress > 15) {
+            if (status) status.innerText = 'Memuat Lanskap Korporat & Sistem...';
+          }
+        }
+      }, 35);
+    });
+
+    /* =========================================================================
+       CREATIVE PANORAMIC LANDSCAPE METROPOLIS & HEADQUARTERS SKYLINE
+       ========================================================================= */
+    window.addEventListener('DOMContentLoaded', function() {
+      var canvas = document.getElementById('creative-canvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+
+      function resizeCanvas() {
+        canvas.width = canvas.parentElement.offsetWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      var buildings = [
+        { x: 0.02, w: 90, h: 280, type: 'glass', lights: true },
+        { x: 0.12, w: 110, h: 360, type: 'hq', lights: true },
+        { x: 0.25, w: 85, h: 220, type: 'office', lights: true },
+        { x: 0.35, w: 130, h: 420, type: 'modern', lights: true },
+        { x: 0.52, w: 95, h: 290, type: 'glass', lights: true },
+        { x: 0.63, w: 120, h: 380, type: 'helipad', lights: true },
+        { x: 0.78, w: 100, h: 260, type: 'office', lights: true },
+        { x: 0.88, w: 110, h: 340, type: 'modern', lights: true }
+      ];
+
+      var skybridges = [
+        { x1: 0.12, y1: 0.45, x2: 0.25, y2: 0.55 }
+      ];
+
+      var particles = [];
+      for (var i = 0; i < 45; i++) {
+        particles.push({
+          x: Math.random(),
+          y: Math.random(),
+          vy: 0.0015 + Math.random() * 0.002,
+          symbol: ['∑', '✓', '§', '%', '∆', 'Rp', 'SAK', 'SPAP'][Math.floor(Math.random() * 8)],
+          alpha: 0.2 + Math.random() * 0.6,
+          size: 10 + Math.random() * 6
+        });
+      }
+
+      var cars = [];
+      for (var c = 0; c < 12; c++) {
+        cars.push({
+          x: Math.random(),
+          dir: Math.random() > 0.5 ? 1 : -1,
+          speed: 0.002 + Math.random() * 0.003,
+          color: Math.random() > 0.3 ? '#E5C158' : '#ef4444'
+        });
+      }
+
+      var mouseX = 0.5;
+      window.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX / window.innerWidth;
+      });
+
+      var ripples = [];
+      canvas.addEventListener('click', function(e) {
+        var rect = canvas.getBoundingClientRect();
+        ripples.push({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+          r: 5,
+          maxR: 120,
+          alpha: 0.8
+        });
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        var W = canvas.width;
+        var H = canvas.height;
+        var parallaxOffset = (mouseX - 0.5) * 40;
+
+        for (var i = 0; i < buildings.length; i++) {
+          var b = buildings[i];
+          var bx = b.x * W + parallaxOffset * (i % 2 === 0 ? 0.5 : 0.8);
+          var bw = b.w;
+          var bh = b.h * (H / 700);
+          var by = H - bh;
+
+          var grad = ctx.createLinearGradient(bx, by, bx + bw, by);
+          grad.addColorStop(0, '#040d18');
+          grad.addColorStop(0.5, '#0b1f3a');
+          grad.addColorStop(1, '#061325');
+
+          ctx.fillStyle = grad;
+          ctx.fillRect(bx, by, bw, bh);
+
+          ctx.strokeStyle = 'rgba(201, 162, 39, 0.35)';
+          ctx.lineWidth = 1.5;
+          ctx.strokeRect(bx, by, bw, bh);
+
+          if (b.lights) {
+            ctx.fillStyle = 'rgba(229, 193, 88, 0.45)';
+            var rows = Math.floor(bh / 22);
+            var cols = Math.floor(bw / 16);
+            for (var r = 2; r < rows - 1; r++) {
+              for (var c = 1; c < cols; c++) {
+                if ((r + c + i) % 3 !== 0) {
+                  ctx.fillRect(bx + c * 16 - 8, by + r * 22 - 12, 8, 12);
+                }
+              }
+            }
+          }
+
+          if (b.type === 'hq') {
+            ctx.fillStyle = '#C9A227';
+            ctx.beginPath();
+            ctx.moveTo(bx + bw / 2, by - 35);
+            ctx.lineTo(bx - 10, by);
+            ctx.lineTo(bx + bw + 10, by);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.strokeStyle = '#E5C158';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(bx + bw / 2, by - 35);
+            ctx.lineTo(bx + bw / 2, by - 70);
+            ctx.stroke();
+
+            ctx.fillStyle = (Date.now() % 1000 < 500) ? '#ef4444' : '#f87171';
+            ctx.beginPath();
+            ctx.arc(bx + bw / 2, by - 72, 4, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = 'rgba(201, 162, 39, 0.9)';
+            ctx.fillRect(bx + 10, by + 25, bw - 20, 18);
+            ctx.fillStyle = '#040d18';
+            ctx.font = 'bold 9px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('KAP FAUZI & REKAN', bx + bw / 2, by + 38);
+
+            var elevatorY = by + 60 + ((Date.now() / 25) % (bh - 120));
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+            ctx.fillRect(bx + bw / 2 - 6, elevatorY, 12, 18);
+            ctx.strokeStyle = '#C9A227';
+            ctx.strokeRect(bx + bw / 2 - 6, elevatorY, 12, 18);
+          }
+
+          if (b.type === 'helipad') {
+            ctx.strokeStyle = '#C9A227';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(bx + bw / 2, by + 15, 18, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.fillStyle = '#C9A227';
+            ctx.font = 'bold 14px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('H', bx + bw / 2, by + 20);
+          }
+        }
+
+        for (var s = 0; s < skybridges.length; s++) {
+          var sb = skybridges[s];
+          var x1 = sb.x1 * W;
+          var y1 = H * sb.y1;
+          var x2 = sb.x2 * W;
+          var y2 = H * sb.y2;
+          ctx.strokeStyle = 'rgba(201, 162, 39, 0.6)';
+          ctx.lineWidth = 4;
+          ctx.beginPath();
+          ctx.moveTo(x1, y1);
+          ctx.lineTo(x2, y2);
+          ctx.stroke();
+        }
+
+        var roadY = H - 35;
+        ctx.fillStyle = '#020810';
+        ctx.fillRect(0, roadY, W, 45);
+        ctx.strokeStyle = 'rgba(201, 162, 39, 0.5)';
+        ctx.setLineDash([12, 8]);
+        ctx.beginPath();
+        ctx.moveTo(0, roadY + 22);
+        ctx.lineTo(W, roadY + 22);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        for (var k = 0; k < cars.length; k++) {
+          var car = cars[k];
+          car.x += car.dir * car.speed;
+          if (car.x > 1) car.x = 0;
+          if (car.x < 0) car.x = 1;
+          ctx.fillStyle = car.color;
+          ctx.fillRect(car.x * W, roadY + 15, 16, 5);
+        }
+
+        for (var p = 0; p < particles.length; p++) {
+          var pt = particles[p];
+          pt.y -= pt.vy;
+          if (pt.y < 0) pt.y = 1;
+          var px = pt.x * W;
+          var py = pt.y * H;
+
+          ctx.fillStyle = 'rgba(229, 193, 88, ' + pt.alpha + ')';
+          ctx.font = pt.size + 'px sans-serif';
+          ctx.fillText(pt.symbol, px, py);
+        }
+
+        for (var rp = ripples.length - 1; rp >= 0; rp--) {
+          var rip = ripples[rp];
+          rip.r += 3;
+          rip.alpha -= 0.025;
+          if (rip.alpha <= 0) {
+            ripples.splice(rp, 1);
+            continue;
+          }
+          ctx.strokeStyle = 'rgba(201, 162, 39, ' + rip.alpha + ')';
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.arc(rip.x, rip.y, rip.r, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    });
+
+    /* =========================================================================
+       AUDIT CALCULATOR & INTERACTIVE SIMULATION LOGIC
+       ========================================================================= */
+    document.addEventListener('DOMContentLoaded', function() {
+      var entitySelect = document.getElementById('sim-entity');
+      var revenueSelect = document.getElementById('sim-revenue');
+      var goalSelect = document.getElementById('sim-goal');
+      var simTitle = document.getElementById('sim-title');
+      var simDesc = document.getElementById('sim-desc');
+      var simDuration = document.getElementById('sim-duration');
+      var simBadge = document.getElementById('sim-badge');
+      var simWaLink = document.getElementById('sim-wa-link');
+
+      function updateSimulator() {
+        var entity = entitySelect ? entitySelect.value : 'PT';
+        var goal = goalSelect ? goalSelect.value : 'audit-umum';
+
+        var title = 'Audit Umum Laporan Keuangan Tahunan';
+        var desc = 'Pemeriksaan independen berstandar SPAP untuk memberikan keyakinan memadai (reasonable assurance) dan penerbitan Opini Auditor Independen guna keperluan pelaporan tahunan, perbankan, tender, atau pemegang saham.';
+        var duration = '3 – 4 Minggu Kerja';
+        var badge = 'Jasa Asurans';
+
+        if (goal === 'review') {
+          title = 'Review Laporan Keuangan (Limited Assurance)';
+          desc = 'Penelaahan analitikal dan inquiries atas laporan keuangan untuk memberikan keyakinan terbatas bahwa tidak terdapat modifikasi material yang diperlukan.';
+          duration = '2 – 3 Minggu Kerja';
+          badge = 'Jasa Asurans';
+        } else if (goal === 'kompilasi') {
+          title = 'Kompilasi Penyusunan Laporan Keuangan Sesuai SAK';
+          desc = 'Bantuan profesional dalam menyusun, merekonsiliasi, dan merapikan catatan pembukuan menjadi Laporan Keuangan standar sesuai SAK ETAP / SAK Umum.';
+          duration = '1 – 2 Minggu Kerja';
+          badge = 'Jasa Non-Asurans';
+        } else if (goal === 'aup') {
+          title = 'Prosedur yang Disepakati (Agreed-Upon Procedures / AUP)';
+          desc = 'Pelaksanaan prosedur pemeriksaan spesifik atas akun atau siklus transaksi tertentu sesuai permintaan manajemen atau pihak pemberi penugasan.';
+          duration = '2 Minggu Kerja';
+          badge = 'Jasa Non-Asurans';
+        } else if (goal === 'konsultasi') {
+          title = 'Konsultasi Keuangan & Pengendalian Internal';
+          desc = 'Pendampingan strategis penataan sistem pencatatan, evaluasi internal control, dan mitigasi risiko keuangan korporasi.';
+          duration = 'Fleksibel';
+          badge = 'Jasa Non-Asurans';
+        }
+
+        if (simTitle) simTitle.innerText = title;
+        if (simDesc) simDesc.innerText = desc;
+        if (simDuration) simDuration.innerText = duration;
+        if (simBadge) simBadge.innerText = badge;
+
+        if (simWaLink) {
+          var msg = 'Halo KAP Fauzi & Rekan, saya ingin berkonsultasi mengenai perikatan ' + title + ' untuk entitas ' + entity + '.';
+          simWaLink.href = 'https://wa.me/6289529631082?text=' + encodeURIComponent(msg);
+        }
+      }
+
+      if (entitySelect) entitySelect.addEventListener('change', updateSimulator);
+      if (revenueSelect) revenueSelect.addEventListener('change', updateSimulator);
+      if (goalSelect) goalSelect.addEventListener('change', updateSimulator);
+      updateSimulator();
+
+      // Scroll Progress Bar
+      window.addEventListener('scroll', function() {
+        var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        var progressBar = document.getElementById('scroll-progress');
+        if (progressBar) progressBar.style.width = scrolled + '%';
+      });
+
+      // Contact Form Toast Notification
+      var contactForm = document.getElementById('contact-form');
+      var toastBox = document.getElementById('toast-box');
+      var toastMsg = document.getElementById('toast-msg');
+      if (contactForm && toastBox) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          toastBox.classList.remove('translate-x-96');
+          setTimeout(function() {
+            toastBox.classList.add('translate-x-96');
+          }, 4000);
+          contactForm.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
